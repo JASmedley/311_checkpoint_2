@@ -14,6 +14,10 @@ create table Recipes (
   RecipeName varchar(100) not null
   )
   
+ SELECT RecipeID, RecipeName FROM Recipes
+ 
+ SELECT * FROM Recipes WHERE RecipeID = 1
+  
 create table RecipeInstructions (
   InstructionID int primary key auto_increment,
   RecipeID int,
@@ -85,9 +89,123 @@ INSERT INTO DietaryRestrictions (DietaryName)
   ('Soy-free'),
   ('Vegan'),
   ('Vegetarian');  
+  
+  select * from DietaryRestrictions
+  
+  INSERT INTO Utensils (UtensilName)
+  VALUES
+  ('Knife'),
+  ('Air fryer'),
+  ('Aluminum foil'),
+  ('Baking parchment'),
+  ('Baking sheet'),
+  ('Blender'),
+  ('Bottle opener'),
+  ('Bread knife'),
+  ('Bread maker'),
+  ('Cake pan'),
+  ('Cheese cloth'),
+  ('Chef’s knife'),
+  ('Coffee maker'),
+  ('Cutting board'),
+  ('Electric whisk'),
+  ('Food processor'),
+  ('French press'),
+  ('Frying pan'),
+  ('Garlic press'),
+  ('Grater'),
+  ('Grill'),
+  ('Hand blender'),
+  ('Hand mixer'),
+  ('Juicer'),
+  ('Kettle'),
+  ('Kitchen shears'),
+  ('Ladle'),
+  ('Masher'),
+  ('Measuring cups'),
+  ('Measuring spoons'),
+  ('Meat thermometer'),
+  ('Microwave'),
+  ('Mixing bowl'),
+  ('Ovenproof dish'),
+  ('Pan'),
+  ('Parchment paper'),
+  ('Paring knife'),
+  ('Pasta strainer'),
+  ('Pizza cutter'),
+  ('Plastic wrap'),
+  ('Pressure cooker'),
+  ('Rice cooker'),
+  ('Rolling Pin'),
+  ('Saucepan'),
+  ('Scale'),
+  ('Skimmer ladle'),
+  ('Slotted spoon'),
+  ('Slow cooker'),
+  ('Sous vide'), 
+  ('Spatula'),
+  ('Stand Mixer'),
+  ('Stirring spoon'),
+  ('Tea Towel'),
+  ('Toaster'),
+  ('Toaster oven'),
+  ('Tongs'),
+  ('Vegetable peeler'),
+  ('Whisk'),
+  ('Wooden spoon');
+  
+  select * from Utensils
+  
+  INSERT INTO Allergens (AllergenName)
+  VALUES
+  ('Dairy'),
+  ('Egg'),
+  ('Fish'),
+  ('Gluten'),
+  ('Alcohol'),
+  ('Pork'),
+  ('Fruit'),
+  ('Meat'),
+  ('Nut'),
+  ('Soy'),
+  ('Bean'),
+  ('Rice');
+  
+  select * from Allergens
+  
+  INSERT INTO Measurements (MeasurementName)
+  VALUES
+  ('Tablespoon'),
+  ('Teaspoon'),
+  ('Gram'),
+  ('Kilogram'),
+  ('Pound'),
+  ('Pound (bag)'),
+  ('Ounce'),
+  ('Ounce (can)'),
+  ('Ounce (bag)'),
+  ('Litre'),
+  ('Cup'),
+  ('Quart'),
+  ('Gallon'),
+  ('Pint');
+  
+  select * from Measurements
 
+INSERT INTO Recipes (RecipeName)
+VALUES ('Cranberry Sauce');
 
+select * from Recipes
 
+INSERT INTO RecipeInstructions (RecipeID, UtensilID, StepOrder, Instructions)
+VALUES 
+(3, 59, 1, 'Halve the cranberries'),
+(3, 43, 2, 'Dissolve the sugar into the water in a medium saucepan over medium heat'),
+(3, 46, 3, 'Stir in cranberries'),
+(3, 46, 4, 'Stir in lemon zest, vanilla extract, and spices'),
+(3, 46, 5, 'Continue stirring until cranberries have dissolved into a thick paste');
+
+select * from RecipeInstructions
 
 
 
