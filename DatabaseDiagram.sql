@@ -11,8 +11,7 @@ create table users (
 
 create table Recipes (
   RecipeID int primary key auto_increment,
-  RecipeName varchar(100) not null,
-  DietaryID int 
+  RecipeName varchar(100) not null
   )
   
 create table RecipeInstructions (
@@ -67,3 +66,31 @@ create table RecipeInstructions (
    DietaryID int primary key auto_increment,
    DietaryName varchar(200) unique not null
    )
+
+
+INSERT INTO DietaryRestrictions (DietaryName)
+  VALUES
+  ('Dairy-free'),
+  ('Egg-free'),
+  ('Fish-free'),
+  ('Gluten-free'),
+  ('Halal'),
+  ('Keto'),
+  ('Kosher'),
+  ('Kosher (pareve)'),
+  ('Low carb'),
+  ('Nut-free'),
+  ('Paleo'),
+  ('Pescetarian'),
+  ('Soy-free'),
+  ('Vegan'),
+  ('Vegetarian');  
+
+
+
+
+
+
+
+
+

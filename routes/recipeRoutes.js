@@ -3,9 +3,9 @@ let router = express.Router()
 let controller = require("../controllers/recipeControllers")
 
 //Basic Recipe Functions
+router.post("/recipes", controller.createRecipe)
 router.get("/recipes", controller.listRecipes)
 router.get("/recipes/:id", controller.showRecipe)
-router.post("/recipes", controller.createRecipe)
 router.put("/recipes/:id", controller.updateRecipe)
 router.delete("/recipes/:id", controller.deleteRecipe)
 
