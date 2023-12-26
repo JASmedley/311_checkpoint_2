@@ -2,7 +2,7 @@ let database = require("../database")
 let argon2 = require("argon2");
 let JsonWebToken = require("jsonwebtoken")
 
-
+//WORKING
 let newRegistration = async function (req,res){
 
   let email = req.body.email;
@@ -26,7 +26,7 @@ let newRegistration = async function (req,res){
 
 }
 
-
+//WORKING
 let startLogin = function(req,res){
 
   let email = req.body.email;

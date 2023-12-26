@@ -1,5 +1,6 @@
 let database = require("../database")
 
+//WORKING
 let sayHello = function(req,res){
 
   let UserID = req.userID;

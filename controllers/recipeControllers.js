@@ -2,8 +2,9 @@ let db = require("../data/recipes")
 
 
 //Basic Recipe Functions
+//WORKING
 let listRecipes = function(req,res){
-  let sql = "SELECT id, name, ingredients, allergens, amounts, dietary FROM recipes"
+  let sql = "SELECT RecipeID, RecipeName FROM Recipes"
   db.query(sql,function(error,results){
     if (error) {
       console.error("Failed to get entries:", error);
@@ -16,9 +17,10 @@ let listRecipes = function(req,res){
 })
 }
 
+//WORKING
 let showRecipe = function(req,res){
   let RecipeID = req.params.id;
-  let sql = "SELECT * FROM recipes WHERE id = ?"
+  let sql = "SELECT * FROM Recipes WHERE RecipeID = ?"
   let params = [RecipeID]
 
   db.query(sql, params, function(error,results){
@@ -27,7 +29,8 @@ let showRecipe = function(req,res){
       res.sendStatus(500);
     }
     else if (results.length == 0){
-      res.sendStatus(undefined)
+      console.error("Recipe not found for id:",RecipeID)
+      res.sendStatus(404)
     }
     else if (results.length >1){
       console.error("fetched more than 1 results for id", RecipeID)
@@ -39,15 +42,11 @@ let showRecipe = function(req,res){
   })
 }
 
+//WORKING
 let createRecipe = function (req,res){
-    let name = req.body.name;
-    let ingredients = req.body.ingredients;
-    let amounts = req.body.amounts;
-    let allergens = req.body.allergens;
-    let dietary = req.body.dietary;
-
-    let sql = 'insert into recipes (name,ingredients,amounts,allergens,dietary) value(?,?,?,?,?)'
-    let params = [name,ingredients,amounts,allergens,dietary]
+    let name = req.body.RecipeName;
+    let sql = 'insert into Recipes (RecipeName) value(?)'
+    let params = [name]
 
     db.query(sql, params, function(error,results){
       if(error){
@@ -62,15 +61,12 @@ let createRecipe = function (req,res){
     
 }
 
+//WORKING
 let updateRecipe = function(req,res){
-let id = req.params.id
-let name = req.body.name;
-let ingredients = req.body.ingredients;
-let amounts = req.body.amounts;
-let allergens = req.body.allergens;
-let dietary = req.body.dietary;
-let sql = "UPDATE recipes SET name = ?, ingredients = ?, amounts = ?, allergens = ?, dietary = ? WHERE id = ?"
-let params = [name, ingredients, amounts, allergens, dietary, id]
+let RecipeID = req.params.id
+let name = req.body.RecipeName;
+let sql = "UPDATE Recipes SET RecipeName = ? WHERE RecipeID = ?"
+let params = [name, RecipeID]
 db.query(sql, params, function(error,result){
   if(error){
       console.error("Couldn't update recipe", error)
@@ -82,10 +78,11 @@ db.query(sql, params, function(error,result){
 })
 }
 
+//WORKING
 let deleteRecipe = function(req,res){
-  let id = req.params.id
-  let sql = "DELETE FROM recipes WHERE id = ?"
-  let params =[id]
+  let RecipeID = req.params.id
+  let sql = "DELETE FROM Recipes WHERE RecipeID = ?"
+  let params =[RecipeID]
   db.query(sql, params, function (error,result){
     if(error){
       console.error("Could not delete entry", error);
