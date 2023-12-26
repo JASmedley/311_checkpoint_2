@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkpoint 2</title>
+    <link href="./style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Checkpoint 2: Data Model for your Capstone App</h1>
+    <h3>Overview</h3>
+    <p>This app manages recipes and users for a website. You can create, review, update, and delete recipes. You can register users and they can login. </p>
+    <h3>Recipe Routes</h3>
+    <h4>Creation & Deletion</h4>
+    <div>
+    <ul>
+      <li><b>GET /recipes</b>-  Lists the entire array of recipes from the data/index.</li>
+      <li><b> GET /recipes/:id</b>- Shows the recipes that matches the passed-in ID.</li>
+      <li><b>POST /recipes</b>- Creates a new recipe and adds it to the current array of recipes.</li>
+      <li><b>PUT /recipes/:id</b>- Updates one recipe in the array based on the passed-in ID.</li>
+      <li><b>DELETE /recipes/:id</b>- Deletes one recipe in the array based on its ID</li>
+    </ul>
+    <h4>Modification</h4>
+    <div>
+      <ul>
+        <li><b>POST /recipe/:id/ingredients</b>  Adds ingredients to a recipe that matchees the passed-in ID.</li>
+        <li><b> POST /recipes/:id/instructions</b> Adds instructions for a recipe that matchees the passed-in ID.</li>
+        <li><b>PUT /recipes/:id/ingredients</b> Updates ingredients to a recipe that matchees the passed-in ID.</li>
+        <li><b>PUT /recipes/:id/instructions</b> Updates instructions for a recipe that matchees the passed-in ID.</li>
+      </ul>
+    <h3>User Management Routes</h3>
+    <div>
+    <ul>
+      <li><b>GET /hello</b> Requires that a user be signed in, then it will return a "hello" message that includes the user's name.</li>
+      <li><b> GET /register</b> Accepts user information and password, and stores that information (but not the password) along with the password hash in the database. </li>
+      <li><b>POST /login</b> Accepts a uesr's email, name, and password and checks the password against the hash in the database that was stored during registration. If the password is good, it will return a token and if not, it returns an error.</li>
+    </ul>
+  </div>
+  </body>
+</html>
