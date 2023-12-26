@@ -19,4 +19,4 @@ This app manages recipes and users for a website. You can create, review, update
 ## User Management Routes
   10. **GET /hello** - Requires that a user be signed in, then it will return a "hello" message that includes the user's name.</li>
   11. **GET /register** - Accepts user information and password, and stores that information (but not the password) along with the password hash in the database.
-  12. **POST /login<** - Accepts a uesr's email, name, and password and checks the password against the hash in the database that was stored during registration. If the password is good, it will return a token and if not, it returns an error.
+  12. **POST /login** - Accepts a uesr's email, name, and password and checks the password against the hash in the database that was stored during registration. If the password is good, it will return a token and if not, it returns an error.
