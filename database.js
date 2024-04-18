@@ -1,5 +1,7 @@
 let mysql =  require("mysql");
 
+require("dotenv").config();
+
 let connection = mysql.createPool({
   user: process.env.DB_User,
   password: process.env.DB_Password,
