@@ -1,11 +1,13 @@
 require("dotenv").config();
 let express = require("express");
+let cors = require('cors')
 let userRoutes = require("./routes/userRoutes");
 let recipeRoutes = require("./routes/recipeRoutes")
 let accountRoutes = require("./routes/accountRoutes")
 let PORT = process.env.PORT || 8003;
 let app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(express.static("./public/index.html"));
 app.use(userRoutes);
