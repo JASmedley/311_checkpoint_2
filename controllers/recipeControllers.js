@@ -57,12 +57,9 @@ let showInstructions = function(req,res){
       console.error("Recipe not found for id:",RecipeID)
       res.sendStatus(404)
     }
-    else if (results.length >1){
-      console.error("fetched more than 1 results for id", RecipeID)
-      res.sendStatus(500)
-    }
+    
     else {
-      res.json(results[0])
+      res.json(results)
     }
   })
 }
