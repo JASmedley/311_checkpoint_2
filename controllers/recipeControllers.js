@@ -42,6 +42,31 @@ let showRecipe = function(req,res){
   })
 }
 
+let showInstructions = function(req,res){
+  let RecipeID= req.params.id
+  let sql = "select * from RecipeInstructions where RecipeID = ?"
+  let params = [RecipeID]
+
+
+  db.query(sql, params, function(error,results){
+    if(error){
+      console.error("Could not fetch entry", error);
+      res.sendStatus(500);
+    }
+    else if (results.length == 0){
+      console.error("Recipe not found for id:",RecipeID)
+      res.sendStatus(404)
+    }
+    else if (results.length >1){
+      console.error("fetched more than 1 results for id", RecipeID)
+      res.sendStatus(500)
+    }
+    else {
+      res.json(results[0])
+    }
+  })
+}
+
 //WORKING
 let createRecipe = function (req,res){
     let name = req.body.RecipeName;
@@ -113,7 +138,8 @@ module.exports = {
   addIngredients,
   addInstructions,
   updateIngredients,
-  updateInstructions
+  updateInstructions,
+  showInstructions
 }
 
 
