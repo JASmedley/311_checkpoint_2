@@ -4,7 +4,7 @@ let db = require("../data/recipes")
 //Basic Recipe Functions
 //WORKING
 let listRecipes = function(req,res){
-  let sql = "SELECT RecipeID, RecipeName FROM Recipes"
+  let sql = "SELECT * FROM Recipes"
   db.query(sql,function(error,results){
     if (error) {
       console.error("Failed to get entries:", error);
