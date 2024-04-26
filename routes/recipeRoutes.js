@@ -5,6 +5,7 @@ let controller = require("../controllers/recipeControllers")
 //Basic Recipe Functions
 router.post("/recipes", controller.createRecipe)
 router.get("/recipes", controller.listRecipes)
+router.get("/recipes/instructions/:id", controller.showInstructions)
 router.get("/recipes/:id", controller.showRecipe)
 router.put("/recipes/:id", controller.updateRecipe)
 router.delete("/recipes/:id", controller.deleteRecipe)
