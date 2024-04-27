@@ -64,6 +64,31 @@ let showInstructions = function(req,res){
   })
 }
 
+let showIngredients = function(req, res) {
+  let RecipeID = req.params.id;
+  let sql = `
+    SELECT RecipeIngredients.IngredientAmount, Measurements.MeasurementName, Ingredients.IngredientName
+    FROM RecipeIngredients
+    INNER JOIN Measurements ON RecipeIngredients.MeasurementID = Measurements.MeasurementID
+    INNER JOIN Ingredients ON RecipeIngredients.IngredientID = Ingredients.IngredientID
+    WHERE RecipeIngredients.RecipeID = ?
+  `;
+  let params = [RecipeID];
+
+  db.query(sql, params, function(error, results) {
+    if (error) {
+      console.error("Could not fetch ingredients", error);
+      res.sendStatus(500);
+    } else if (results.length === 0) {
+      console.error("Ingredients not found for RecipeID:", RecipeID);
+      res.sendStatus(404);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+
 //WORKING
 let createRecipe = function (req,res){
     let name = req.body.RecipeName;
@@ -136,7 +161,8 @@ module.exports = {
   addInstructions,
   updateIngredients,
   updateInstructions,
-  showInstructions
+  showInstructions,
+  showIngredients
 }
 
 
